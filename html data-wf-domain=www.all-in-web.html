@@ -640,14 +640,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const innerEl = document.querySelector(".hero_ani_inner");
   const reduce  = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (!overlay || !wrapper || !innerEl || reduce || sessionStorage.getItem("allinweb_intro_played")) {
+  if (!overlay || !wrapper || !innerEl || reduce /* || sessionStorage.getItem("allinweb_intro_played") */) {
     overlay && overlay.classList.add("is-hidden");
+    console.warn("[intro] skipped", { overlay: !!overlay, wrapper: !!wrapper, innerEl: !!innerEl, reduce });
     return;
   }
-  sessionStorage.setItem("allinweb_intro_played", "1");
+  // sessionStorage.setItem("allinweb_intro_played", "1"); // TEMP: disabled for local testing
 
   if (typeof gsap === "undefined" || typeof Flip === "undefined") {
     overlay.classList.add("is-hidden");
+    console.warn("[intro] GSAP or Flip not loaded", { gsap: typeof gsap, Flip: typeof Flip });
     return;
   }
   gsap.registerPlugin(Flip);
