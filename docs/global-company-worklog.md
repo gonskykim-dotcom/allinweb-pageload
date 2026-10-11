@@ -221,6 +221,16 @@
 - Designer에서 직접 입력할 항목: 그룹 제목 3개(MENU·FOLLOW US·EMAIL), 메뉴 링크 5개, SNS 2개, 이메일 1개, 저작권 문구, 개인정보처리방침 문구
 - 남은 차이: 메뉴 글자 크기(시안 28px), 메뉴와 정보 사이 세로 구분선, 워드마크 그라데이션
 
+**푸터 새 컴포넌트 제작 (대표님 지시: Lumos 컴포넌트가 아닌 새로 제작, 기존 만든 컴포넌트는 유지)**
+- 새 컴포넌트 **`Global Footer`** (그룹 Global) 생성. Lumos Footer와 별개로 Home 본문(`page_main`) 아래에 배치
+- 기존 Lumos Footer의 `Global Company` 변형과 추가 요소는 **그대로 유지** (대표님 지시). Home에 넣었던 Lumos Footer 인스턴스만 제거
+- 구조: `<footer>` → (스크린리더용 h2 "Footer") → `u-container` → Top[메뉴 nav(Home·LIVE Guide·Creators·Insight·Contact) + 정보 영역(FOLLOW US: TikTok·Instagram / EMAIL: mils5959@naver.com)] → 워드마크 "Global Company" → Bottom[© 2026 Global Company. All rights reserved. + 개인정보처리방침 / 슬로건]
+- 스타일: 새 클래스 `gfooter_*` 15개를 Lumos 변수로 작성 (배경·글자·강조색·테두리·간격 변수 사용, 하드코딩 색 없음). 태블릿 이하는 세로 배치, 메뉴와 정보 사이 구분선은 정보 영역 왼쪽 테두리로 구현
+- 링크: Home만 실제 연결, 나머지 메뉴·SNS·개인정보처리방침은 임시 #, 이메일은 mailto
+- 시도 후 변경한 부분: 별도 구분선 요소는 Designer 캔버스에서 넓은 막대로 보여 삭제 → 테두리로 대체 / `w--current` 클래스는 예약어라 만들 수 없어 현재 페이지 금색 표시는 미적용(메뉴 모두 흰색)
+- 시안과 남은 차이: 워드마크 금색 그라데이션(금색 단색으로 대체, Designer에서 글자 모양 배경 설정 필요), Home 메뉴 금색 강조, 저작권 연도는 고정 2026(Lumos 자동 연도 스크립트 미사용)
+- 화면 확인: Designer 캡처로 시안 배치 확인 (캡처 도구는 Google Fonts 미반영 → 워드마크 서체는 Designer 화면에서 확인 필요)
+
 **미해결 1·2번 처리 방식 결정**
 - 수식 값 3가지(글자 크기 유동값, XL/2XL, 섹션 간격)와 버튼 색 이상(보조·텍스트 링크)은 따로 처리하지 않음
 - **개발하면서 해당 화면을 만들 때 그때그때 수정**하기로 결정 (대표님 지시)
