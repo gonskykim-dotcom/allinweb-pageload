@@ -17,6 +17,12 @@
 | 프레임워크 | Lumos (올인웹 커스텀 템플릿 기반, 버전 표기 확인 불가) |
 | 사용 스킬 | `lumos-skill`, `webflow-gsap-animation` (Global Company 보완판) |
 
+### 개발 기준 — 컴포넌트 사용 (2026-10-11 대표님 지시)
+1. **Lumos Starter 템플릿 컴포넌트를 최대한 사용한다.** (Slider, Card Primary, Button Main, Form Input·Select·Textarea·Checkbox·Radio, Accordion, Modal, Tab, Dropdown, Nav, Footer 등)
+2. **디자인을 바꿔야 할 때는 원본을 직접 고치지 않고, 해당 컴포넌트에 변형(Variant)을 추가해서** 사용한다. (원본 스타일을 바꾸면 모든 인스턴스에 반영되므로)
+3. **맞는 컴포넌트가 없을 때만 새 컴포넌트를 만든다.** 새 컴포넌트도 Lumos 규칙(클래스 이름, 테마 변수, 반응형 변수)을 따른다.
+4. 참고: Slider 등의 Slot에는 컴포넌트만 넣을 수 있다. 슬라이드 내용(예: 크리에이터 카드)은 카드 컴포넌트로 만들어 넣는다. CMS 목록을 Slot에 넣는 방식은 구현 전에 먼저 시험한다.
+
 ## 2. 일정 (고객 메일 합의 기준)
 
 | 일자 | 내용 | 상태 |
@@ -142,6 +148,14 @@
 **작업수행일지 작성**
 - `docs/global-company-worklog.md` 생성 (이 문서), 같은 브랜치에 커밋 후 원격에 올림
 - 이후 작업이 있을 때마다 이 일지에 이어서 기록
+
+**Lumos 컴포넌트 재사용 가능 여부 확인**
+- Slider 컴포넌트 조회 (Swiper 기반)
+  - 변형 3가지: Overflow Visible / Overflow Hidden / Crop Left
+  - 화면별 슬라이드 개수(4/3/2/1), 속도, 컨트롤 등 속성(props)
+  - 슬라이드는 Slot에 넣는 구조
+- 결론: MCP로 기존 컴포넌트 넣기, 속성 변경, Slot 채우기가 가능함
+- 대표님 지시로 **"개발 기준 — 컴포넌트 사용"** 추가 (1번 항목 아래)
 
 ---
 
