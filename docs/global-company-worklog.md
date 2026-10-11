@@ -172,7 +172,8 @@
   - Typography Paragraph → **`Text Main Secondary`** (Text Main 복제 + 색 `text-secondary` 회색)
 - 섹션 위아래 간격: Lumos Spacer **Page Top**(약 160~176px) 사용. Figma는 200px → 차이는 개발 중 조정 예정
 - 과정 중 슬롯 이름 오류로 빈 Section 2개가 생겼고, 즉시 삭제함
-- 미확인: Designer 연결이 끊겨 화면 캡처 확인 못 함
+- 화면 확인: Designer 재연결 후 캡처 → 금색 제목·회색 문구·가운데 정렬·간격 정상
+- 서체: 대표님이 Noto Serif KR 연결 완료. Designer 화면에서 세리프·굵기 정상 확인 (MCP 캡처 도구는 Google Fonts를 반영하지 않아 고딕으로 보임 → 서체는 Designer 화면 기준으로 확인)
 
 **미해결 1·2번 처리 방식 결정**
 - 수식 값 3가지(글자 크기 유동값, XL/2XL, 섹션 간격)와 버튼 색 이상(보조·텍스트 링크)은 따로 처리하지 않음
