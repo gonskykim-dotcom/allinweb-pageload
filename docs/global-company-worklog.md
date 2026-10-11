@@ -164,6 +164,16 @@
 - 시안과 고객 확정 내용이 다른 부분 3건 발견: 숫자 카드의 67·23·90명 표기 누락, CTA 문구가 예전 문구('방송 세팅부터 성장 전략까지'), 크리에이터 영역 안내 문구 누락
 - Figma 이미지 다운로드는 네트워크 정책으로 차단 → 화면 확인은 인라인 캡처로 진행
 
+**메인페이지 Statement 섹션 제작 (Home `page_main` 첫 섹션)**
+- 구조 (모두 Lumos 템플릿 컴포넌트): `Section`(ID `statement`) → `Content Wrapper`(Center) → `Typography Heading` + `Typography Paragraph`
+- 내용: "CHALLENGE WITHOUT LIMITS. / CREATE NEW POSSIBILITIES." (H2, 줄바꿈) + "끝없이 도전하고, 새로운 가능성을 창조하라." (Text Main), 최대 폭 제한 해제
+- 변형(Variant) 추가 (원본은 그대로)
+  - Typography Heading → **`H2 Accent`** (H2 복제 + 색 `heading-accent` 금색)
+  - Typography Paragraph → **`Text Main Secondary`** (Text Main 복제 + 색 `text-secondary` 회색)
+- 섹션 위아래 간격: Lumos Spacer **Page Top**(약 160~176px) 사용. Figma는 200px → 차이는 개발 중 조정 예정
+- 과정 중 슬롯 이름 오류로 빈 Section 2개가 생겼고, 즉시 삭제함
+- 미확인: Designer 연결이 끊겨 화면 캡처 확인 못 함
+
 **미해결 1·2번 처리 방식 결정**
 - 수식 값 3가지(글자 크기 유동값, XL/2XL, 섹션 간격)와 버튼 색 이상(보조·텍스트 링크)은 따로 처리하지 않음
 - **개발하면서 해당 화면을 만들 때 그때그때 수정**하기로 결정 (대표님 지시)
