@@ -175,6 +175,20 @@
 - 화면 확인: Designer 재연결 후 캡처 → 금색 제목·회색 문구·가운데 정렬·간격 정상
 - 서체: 대표님이 Noto Serif KR 연결 완료. Designer 화면에서 세리프·굵기 정상 확인 (MCP 캡처 도구는 Google Fonts를 반영하지 않아 고딕으로 보임 → 서체는 Designer 화면 기준으로 확인)
 
+**메인페이지 LIVE Proof 섹션 제작 (Statement 다음)**
+- 승인 사항: 4번째 숫자 카드에 67·23·90명 표기 추가, Figma 대표 이미지를 Webflow에 업로드
+- 구조 (모두 Lumos 템플릿 컴포넌트): `Section`(ID `live-proof`) → `Layout`(Columns) [왼쪽: Eyebrow + Heading(H1) + Paragraph + Tag / 오른쪽: Visual Image] → Eyebrow("숫자로 보는 GLOBAL COMPANY") → `Grid`(2열) + `Card Primary` 4개
+- 변형(Variant) 추가 (원본은 그대로)
+  - Card Primary → **`Stat`** (작은 모서리, 안쪽 여백 space-4, 테두리 없음, 작은 본문)
+  - Typography Tag → **`Gold Outline`** (금색 10% 배경, 금색 글자·테두리, 둥근 모양)
+- 카드 4개: 5.43M 다이아·약 3,800만 원(안내 문구 2줄 포함) / MBC·SBS / WINNER / 소속 크리에이터 67명·에이전트 23명(총 90명, 기준 2026년 10월). 카드 링크는 숨김
+- 대표 이미지: Figma 캡처본(1배, 599×765) 업로드 → 원본 사진으로 교체 필요
+- 화면 확인: Designer 캡처로 텍스트·배치·카드 내용 정상 확인
+- 시안과 남은 차이 (사용자 확인 후 처리)
+  - 제목 2번째 줄 금색, 본문 첫 줄 굵게: MCP로는 일반 텍스트만 넣을 수 있어 미적용 → Designer에서 굵게(strong) 처리 필요
+  - 대표 이미지가 가로로 넓게 잘려 보임 (Tall 4/5 변형이 이 폭에서 세로 비율로 보이지 않음)
+  - 숫자 카드 배치·섹션 간격은 Figma 값과 비교 후 조정 예정
+
 **미해결 1·2번 처리 방식 결정**
 - 수식 값 3가지(글자 크기 유동값, XL/2XL, 섹션 간격)와 버튼 색 이상(보조·텍스트 링크)은 따로 처리하지 않음
 - **개발하면서 해당 화면을 만들 때 그때그때 수정**하기로 결정 (대표님 지시)
