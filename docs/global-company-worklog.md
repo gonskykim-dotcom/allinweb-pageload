@@ -321,3 +321,115 @@
 
 1. CMS 컬렉션 설계: 크리에이터(9명, 순서·분류·TikTok 연결), 소식·이벤트(성과/뉴스/이벤트/정보), 메인 팝업
 2. 10/12 개발 착수: 공통(내비게이션·푸터·하단 고정 버튼) → Home(스크롤 연출 6단계) → 각 페이지 (미해결 1·2번은 이 과정에서 함께 수정)
+
+---
+
+## 7. 인수인계 (클라우드 세션 → 로컬, 10/11)
+
+### 7-1. 로컬에서 시작하는 방법
+1. `git clone https://github.com/gonskykim-dotcom/allinweb-pageload.git` → `git checkout claude/global-company-gsap-skill`
+2. 로컬 Claude Code에 연결할 것: Webflow MCP, Figma MCP, Dropbox, Gmail (Google Drive는 선택)
+3. Claude에게 `CLAUDE.md`와 이 작업일지를 먼저 읽게 한 뒤 작업 시작
+4. Webflow 작업 내용은 Webflow 서버에 저장되어 있어 따로 옮길 것 없음
+
+### 7-2. 작업 규칙 (요약)
+- 답변은 한국어, 협의되지 않은 작업은 동의 후 진행 ("말씀주신 부분으로 진행하겠습니다")
+- 검토만 요청한 경우 사이트 수정 금지
+- Lumos 컴포넌트 + 변형(Variants) 우선 사용
+- 컴포넌트 안의 컴포넌트는 연결 해제(unlink) 후 수정
+- 컴포넌트로 안 되는 것은 연결 해제하거나 Lumos 변수로 새로 제작
+- 작업할 때마다 이 일지에 기록 후 커밋·푸시
+
+### 7-3. 주요 ID
+**사이트·페이지**
+| 항목 | ID |
+|---|---|
+| Webflow 사이트 | `6ac8f703fef5e75c9add8463` |
+| Home 페이지 | `6ac8f703fef5e75c9add8431` |
+| Home page_wrap | `4be9a37b-c87f-90d1-0eb1-5bdc213da5fb` |
+| Home page_main | `62930284-d0d8-35d6-dd4f-4d4909c04dd0` |
+| Figma 파일 키 | `iB6KIWwcJvNiGhCiEjm1Tv` |
+
+**Home 섹션·컴포넌트** (순서: 내비 → Statement → LIVE Proof → CTA → Global Footer → Lumos Footer)
+| 항목 | ID |
+|---|---|
+| Statement 섹션 | `02c547cd-f42c-2eba-1176-034115839736` |
+| LIVE Proof 섹션 | `d552649a-ca57-690c-3e4f-eabadefdbed6` |
+| CTA 섹션 | `b7e98ce6-4294-b563-5094-86005c37870a` |
+| Global Footer 컴포넌트 (새로 만든 푸터, gfooter_* 클래스) | `bec83444-8471-b4f9-2546-433307d10a4a` |
+| Global Footer 인스턴스 (Home) | `3ce76454-1de4-ae04-057d-762cbb90f0aa` |
+| Global Footer 워드마크 이미지 | `c92e1bc3-617b-0330-7634-519a4069edc4` |
+| Lumos Footer 인스턴스 (Home, 비교용) | `5e262a4e-3115-102d-e6c7-16041aa35847` |
+| Lumos Footer 변형 "Global Company" | `706396f2-bd61-afe4-fbb8-3ecb733875c0` |
+| Lumos Footer 메뉴 그리드 (연결 해제됨, `u-grid footer_menu_grid`) | `20b88990-7b60-d4eb-864f-ac2b7439cd8d` |
+| Visual Image 변형 "Cover Transparent" (CTA 배경용) | `95f3a21d-a592-a750-96d9-fbf479fad936` |
+
+**에셋**
+| 항목 | ID |
+|---|---|
+| Global Company 워드마크 SVG | `6acb8c5a54f9656736c5b2b0` |
+| CTA 배경 | `6acb819308b8632626f9e921` |
+| 대표 정면 사진 | `6acb7b5bc1eea5af07eeafc1` |
+| 크리에이터 사진 | 이름 `creator-<slug>-NN` (21장) |
+
+**CMS**
+| 항목 | ID |
+|---|---|
+| Creators | `6acb90cfb313d128cec38c3e` |
+| Insights | `6acb90f7b914c960d334eb72` |
+| Popups | `6acb90f8e028ee9ba1d8fe9f` |
+| 크리에이터 항목 9개 (순서대로 이철희·조담인·승환·김린아·최윤진·박정은·노진희·신솔·최성연) | `6acb91deefe02dfe0f7554` + `bc, be, c0, c2, c4, c6, c8, ca, cc` |
+| 분류 옵션 | 일상·소통 `f2d14b3666e639f0d88944715e67b55b` / 음악·보컬 `1c875ad6845c32083d5fb3b7bc102473` / 운동·피트니스 `8c5cad9409a4487b48d0ae82726fdce2` / 요리·먹방 `beb4fbd8c6a13bf41037427836d8910c` / 취미·라이프 `bba1461a1e5a9303601bbf5892e24250` |
+
+**Lumos 변수 (자주 사용)**
+| 용도 | ID |
+|---|---|
+| 배경 | `variable-3c7a6c5d-b346-0958-69b9-1a443ea05d8c` |
+| 본문 텍스트 | `variable-7b07ac88-d28a-5c0a-7534-a6752a88d588` |
+| 제목 강조(금색) | `variable-25bd0d95-1867-08bf-9f2f-eabc649f971e` |
+| 보조 텍스트 | `variable-f8f04b3e-24f4-2aba-65ad-f4cbfe03254d` |
+| 테두리 색 | `variable-375c0552-4fe6-af3e-8135-4c691ee51697` |
+| gold-400 | `variable-e8305938-e678-73eb-eb8f-247b11361f01` |
+| gold-700-o14 | `variable-fc3f4a07-8d05-f5f5-483b-abb4e16b33e7` |
+| 제목 폰트 / 굵기 | `variable-88787e63-df77-6937-1a2a-782abb789123` / `variable-4b164c1c-8d1a-d4a3-2cae-137e7ca87326` |
+| space 1 / 2 / 3 / 4 | `variable-5e62f431-67d5-8b18-e604-2447cdb2b716` / `variable-8380cdf9-4fff-ddb3-c837-bc12c334bc7d` / `variable-933e34a0-37cf-8815-1388-b217d407b2da` / `variable-97ded496-da13-cdd0-8025-9d1a1e00c3fe` |
+| space 6 / 8 | `variable-962e621c-661a-9f49-c71d-02ade3d8dcc0` / `variable-9831d389-5f88-a61b-08d7-5428e0698435` |
+| section-space large | `variable-b7808272-40b9-a59e-9fd8-59713fa8b96d` |
+| 테두리 두께 | `variable-6a827233-04fc-6e0e-9b94-ad3b23777e0b` |
+
+### 7-4. Webflow MCP 주의사항 (이번 세션에서 확인)
+- 컴포넌트 정의 안의 중첩 인스턴스는 수정 불가 → `unlink_component_instance`(scope_component_id 지정)로 연결 해제 후 수정
+- 인스턴스는 삽입·이동 기준(anchor)으로 쓸 수 없음
+- 중첩 인스턴스의 Classes 속성으로 넣은 클래스에는 변형 스타일이 적용되지 않음
+- TextBlock은 글자 없는 Block으로 생성됨 → 글자는 Paragraph 사용
+- Block/DOM 요소에는 set_text 불가 → Paragraph를 새로 만들고 기존 요소 삭제
+- `-webkit-background-clip` 속성 거부됨
+- `w--current` 같은 Webflow 예약 클래스 이름은 깨짐 → 사용 금지
+- 빈 div는 Designer에서 넓은 블록으로 보임 → 구분선은 border로 처리
+- color-mix 오버레이는 스냅샷에서 회색으로 보임 (CTA는 오버레이 삭제, 이미지 opacity 0.3 + screen 블렌드로 해결)
+- 컴포넌트 링크 속성은 url/email/phone/popover만 가능 (페이지 연결 불가 → Home은 url `/`)
+- 이미지 업로드(`upload_image_by_url`)는 60초 시간 초과가 잦음 → 1~2장씩 업로드하고 `list_assets`로 결과 확인. 시간 초과 후에도 서버에서 계속 올라가는 경우가 있으니 중복 업로드 주의
+- Dropbox 사진은 `download_link`(1회용 임시 링크, 최대 15분) → Webflow `upload_image_by_url` 순서로 가져옴 (클라우드 컨테이너에서는 직접 다운로드가 막혔음)
+- Figma 에셋은 `download_assets`(svg) 후 Figma 에셋 URL로 Webflow 업로드 가능
+
+### 7-5. 남은 작업
+**CMS·콘텐츠**
+- 신솔·승환·김린아 사진 7장 업로드 및 CMS 연결 (Dropbox `03_구성원_크리에이터/직원분들 사진`)
+- 샘플 하이라이트 TikTok 링크 9개 → 오픈 전 삭제 (실제 영상 주소 받은 경우만 노출)
+- 통계·경력·협업 이력: 실제 자료 없으면 숨김 처리
+- 링크 기준 확인: 10/9 메일 "이름·활동명 또는 TikTok ID → 해당 프로필 연결"이 TikTok 프로필인지 상세 페이지인지 대표님께 확인
+
+**10/9·10/10 메일 반영 사항**
+- 숫자 카드: 소속 크리에이터 67명 / 에이전트 23명 / 총 90명 네트워크 / 기준 2026년 10월 ("직원 90명" 표기 금지)
+- 크리에이터 영역 안내 문구: "홈페이지에는 소속 크리에이터 중 일부를 소개합니다."
+- 상세 버튼: 'TikTok 프로필 보기'
+- 대표 실적 카드: 제목 "대표 개인 TikTok LIVE 월간 최고 실적" / "5.43M 다이아 · 원화 환산 약 3,800만 원" / 안내 "1,000다이아당 7,000원을 적용한 참고 환산액이며, 실제 정산액과 다를 수 있습니다. 대표 개인의 최고 실적이며, 크리에이터별 성과와 수익은 다를 수 있습니다."
+- 하단 모집 문구 통일: "처음이라도 괜찮습니다. 방송 방향 상담부터 첫 방송 준비, 진행과 시청자 소통, 방송 후 피드백까지 함께합니다."
+- 메인 첫 화면: 중앙 대표 슈트, 왼쪽 조담인, 오른쪽 이철희 유지
+
+**개발**
+- Home에 남길 푸터 결정 (Global Footer / Lumos Footer)
+- 크리에이터 섹션, 목록·상세 페이지, Insight, 팝업, 필터 JS
+- 지원서: 필수·선택 동의 분리(사전 체크 금지), 선택 미동의 시 선택 정보 미전송, GA4에 개인정보 전송 금지
+- 이전 잔여: 제목 금색 strong 처리, 대표 사진 원본 교체
+- 일정: 10/26 개발 완료·임시 도메인 전달, 10/28 목표 완료
