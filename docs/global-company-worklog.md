@@ -198,6 +198,19 @@
 - 섹션 위 간격: Main → **Small** (Figma 이미지 위 약 76px과 비슷)
 - 남은 차이: 라벨~카드 간격 약 70px(Figma 48px), 섹션 아래 간격 약 80px(Figma 120px) → 수식 변수(섹션 간격) 정리 때 함께 조정
 
+**메인페이지 CTA 섹션 제작 (대표님 승인: 확정 문구, 배경 이미지 업로드, 임시 링크 #)**
+- 구조 (모두 Lumos 템플릿 컴포넌트): `Section`(ID `cta`, 위·아래 간격 Large) → Background: `Visual Image` / Container: `Content Wrapper`(Center) → Eyebrow + Heading(H1) + Paragraph + `Button Wrapper`(`Button Main`) + Paragraph(Text Small)
+- 내용: "CREATOR RECRUITMENT" / "YOUR STAGE / STARTS HERE." / 고객 확정 문구 "처음이라도 괜찮습니다. 방송 방향 상담부터 첫 방송 준비, 진행과 시청자 소통, 방송 후 피드백까지 함께합니다." / 버튼 "크리에이터 지원하기"(링크 #, 지원 페이지 생성 후 연결) / "지원서 작성 3분 · 접수 후 순차적으로 연락드립니다"
+- 배경 이미지: Figma 무대 조명 이미지를 캡처 URL로 업로드 (`cta-stage-background.png`, 1440×760, 투명도 35% 포함)
+- 변형(Variant) 추가: Visual Image → **`Cover Transparent`** (Cover 복제 + 이미지 틀 배경 투명, 이미지 투명도 0.3 + screen 합성)
+- `Media Overlay`를 넣었으나 캡처에서 회색 막처럼 보여(color-mix 표현 추정) 삭제. 이미지 변형만으로 시안과 비슷한 어두운 무대 분위기 확인
+- 남은 차이: 제목 2번째 줄 금색 그라데이션(굵게 처리 필요), 버튼 금색 그라데이션·빛 번짐, 하단 금빛 타원 광원, 버튼~안내 문구 간격(시안 24px)
+
+**푸터 제작 시도 (Lumos Footer 변형 방식, 대표님 승인)**
+- Footer 컴포넌트에 **`Global Company`** 변형 추가 (아직 스타일 변경 없음)
+- Footer 안의 Grid → Footer Group → Footer Link처럼 **컴포넌트 안 슬롯에 들어간 컴포넌트는 MCP로 문구·링크 수정이 불가**함을 확인 (ID 조회·수정 모두 실패)
+- 시험 삽입한 Grid는 삭제해 Footer 원래 상태로 복구 → 진행 방식 대표님 확인 대기
+
 **미해결 1·2번 처리 방식 결정**
 - 수식 값 3가지(글자 크기 유동값, XL/2XL, 섹션 간격)와 버튼 색 이상(보조·텍스트 링크)은 따로 처리하지 않음
 - **개발하면서 해당 화면을 만들 때 그때그때 수정**하기로 결정 (대표님 지시)
